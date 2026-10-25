@@ -27,12 +27,12 @@ description: "Task list template for feature implementation"
 
 **Purpose**: Projeto Expo + TypeScript + dependências
 
-- [ ] T001 Initialize Expo project with TypeScript template (creates `package.json`, `app.json`, `tsconfig.json`, `App.tsx` at repository root via `npx create-expo-app`)
-- [ ] T002 [P] Add navigation dependencies `@react-navigation/native`, `@react-navigation/native-stack`, `react-native-screens`, `react-native-safe-area-context` in `package.json`
-- [ ] T003 [P] Add `@react-native-async-storage/async-storage` in `package.json`
-- [ ] T004 [P] Configure `strict: true`, `noUncheckedIndexedAccess`, `noImplicitAny` in `tsconfig.json`
-- [ ] T005 [P] Configure ESLint + Prettier (template Expo presets) in `package.json` / `.eslintrc.js`
-- [ ] T006 Create source directories `src/navigation/`, `src/screens/`, `src/components/`, `src/state/`, `src/storage/`, `src/types/`, `src/validation/` in repository root
+- [X] T001 Initialize Expo project with TypeScript template (creates `package.json`, `app.json`, `tsconfig.json`, `App.tsx` at repository root via `npx create-expo-app`)
+- [X] T002 [P] Add navigation dependencies `@react-navigation/native`, `@react-navigation/native-stack`, `react-native-screens`, `react-native-safe-area-context` in `package.json`
+- [X] T003 [P] Add `@react-native-async-storage/async-storage` in `package.json`
+- [X] T004 [P] Configure `strict: true`, `noUncheckedIndexedAccess`, `noImplicitAny` in `tsconfig.json`
+- [X] T005 [P] Configure ESLint + Prettier (template Expo presets) in `package.json` / `.eslintrc.js`
+- [X] T006 Create source directories `src/navigation/`, `src/screens/`, `src/components/`, `src/state/`, `src/storage/`, `src/types/`, `src/validation/` in repository root
 
 ---
 
@@ -42,15 +42,15 @@ description: "Task list template for feature implementation"
 
 **⚠️ CRITICAL**: No user story work can begin until this phase is complete
 
-- [ ] T007 [P] Create `StatusLeitura`, `Livro`, `Filtro` types with closed union in `src/types/livro.ts` (data-model.md)
-- [ ] T008 [P] Implement pure `validarLivroForm` (trim + required + erros) in `src/validation/livroForm.ts` (contract §5)
-- [ ] T009 Implement `LivroRepository` over AsyncStorage (`carregar`/`salvar`, chave `@minha-estante/dados`) in `src/storage/livroRepository.ts` (depends on T007)
-- [ ] T010 [P] Implement `livroReducer` with actions `carregado`, `falhaCarga`, `adicionar`, `alterarStatus`, `definirFiltro`, `limparErro` in `src/state/livroReducer.ts` (depends on T007)
-- [ ] T011 Implement `LivroProvider` (Context + reducer, load on mount, persist after mutations) in `src/state/LivroProvider.tsx` (depends on T009, T010)
-- [ ] T012 Create `RootNavigator` (native-stack: `Estante` initial, `Cadastro`) in `src/navigation/RootNavigator.tsx` (depends on T002)
-- [ ] T013 [P] Create placeholder screens rendering titles only in `src/screens/EstanteScreen.tsx` and `src/screens/CadastroScreen.tsx` (depends on T006)
-- [ ] T014 Wire `LivroProvider` + `NavigationContainer` + `RootNavigator` in `App.tsx` (depends on T011, T012, T013)
-- [ ] T015 Run gate `npx tsc --noEmit` clean (depends on T007–T014)
+- [X] T007 [P] Create `StatusLeitura`, `Livro`, `Filtro` types with closed union in `src/types/livro.ts` (data-model.md)
+- [X] T008 [P] Implement pure `validarLivroForm` (trim + required + erros) in `src/validation/livroForm.ts` (contract §5)
+- [X] T009 Implement `LivroRepository` over AsyncStorage (`carregar`/`salvar`, chave `@minha-estante/dados`) in `src/storage/livroRepository.ts` (depends on T007)
+- [X] T010 [P] Implement `livroReducer` with actions `carregado`, `falhaCarga`, `adicionar`, `alterarStatus`, `definirFiltro`, `limparErro` in `src/state/livroReducer.ts` (depends on T007)
+- [X] T011 Implement `LivroProvider` (Context + reducer, load on mount, persist after mutations) in `src/state/LivroProvider.tsx` (depends on T009, T010)
+- [X] T012 Create `RootNavigator` (native-stack: `Estante` initial, `Cadastro`) in `src/navigation/RootNavigator.tsx` (depends on T002)
+- [X] T013 [P] Create placeholder screens rendering titles only in `src/screens/EstanteScreen.tsx` and `src/screens/CadastroScreen.tsx` (depends on T006)
+- [X] T014 Wire `LivroProvider` + `NavigationContainer` + `RootNavigator` in `App.tsx` (depends on T011, T012, T013)
+- [X] T015 Run gate `npx tsc --noEmit` clean (depends on T007–T014)
 
 **Checkpoint**: Foundation ready - user story implementation can now begin in parallel
 
@@ -64,10 +64,10 @@ description: "Task list template for feature implementation"
 
 ### Implementation for User Story 1
 
-- [ ] T016 [US1] Implement form state and inputs (título, autor) in `src/screens/CadastroScreen.tsx`
-- [ ] T017 [US1] Wire `validarLivroForm` with visible error messages before any save in `src/screens/CadastroScreen.tsx` (depends on T008, T016)
-- [ ] T018 [US1] Dispatch `adicionar` on valid submit then `navigation.goBack()` in `src/screens/CadastroScreen.tsx` (depends on T011, T017)
-- [ ] T019 [US1] Add "Adicionar livro" button navigating to `Cadastro` (entry point for independent test) in `src/screens/EstanteScreen.tsx` (depends on T013)
+- [X] T016 [US1] Implement form state and inputs (título, autor) in `src/screens/CadastroScreen.tsx`
+- [X] T017 [US1] Wire `validarLivroForm` with visible error messages before any save in `src/screens/CadastroScreen.tsx` (depends on T008, T016)
+- [X] T018 [US1] Dispatch `adicionar` on valid submit then `navigation.goBack()` in `src/screens/CadastroScreen.tsx` (depends on T011, T017)
+- [X] T019 [US1] Add "Adicionar livro" button navigating to `Cadastro` (entry point for independent test) in `src/screens/EstanteScreen.tsx` (depends on T013)
 - [ ] T020 [US1] Manual acceptance US.01: run script in `specs/001-lista-leituras/quickstart.md` section "US.01 — Cadastrar um livro" (depends on T016–T019)
 
 **Checkpoint**: At this point, User Story 1 should be fully functional and testable independently
@@ -82,10 +82,10 @@ description: "Task list template for feature implementation"
 
 ### Implementation for User Story 2
 
-- [ ] T021 [P] [US2] Create `LivroItem` component (título, autor, status) with `React.memo` in `src/components/LivroItem.tsx` (depends on T007)
-- [ ] T022 [P] [US2] Create `FiltroStatus` chips component (4 opções) in `src/components/FiltroStatus.tsx` (depends on T007)
-- [ ] T023 [P] [US2] Implement pure `filtrarLivros(livros, filtro)` in `src/state/filtros.ts` (depends on T007)
-- [ ] T024 [US2] Build `EstanteScreen` with `FlatList` (`keyExtractor={id}`), empty states, `useMemo` filter wiring to provider in `src/screens/EstanteScreen.tsx` (depends on T011, T021, T022, T023)
+- [X] T021 [P] [US2] Create `LivroItem` component (título, autor, status) with `React.memo` in `src/components/LivroItem.tsx` (depends on T007)
+- [X] T022 [P] [US2] Create `FiltroStatus` chips component (4 opções) in `src/components/FiltroStatus.tsx` (depends on T007)
+- [X] T023 [P] [US2] Implement pure `filtrarLivros(livros, filtro)` in `src/state/filtros.ts` (depends on T007)
+- [X] T024 [US2] Build `EstanteScreen` with `FlatList` (`keyExtractor={id}`), empty states, `useMemo` filter wiring to provider in `src/screens/EstanteScreen.tsx` (depends on T011, T021, T022, T023)
 - [ ] T025 [US2] Manual acceptance US.02: run script in `specs/001-lista-leituras/quickstart.md` section "US.02 — Visualizar a lista" (depends on T016, T024)
 
 **Checkpoint**: At this point, User Stories 1 AND 2 should both work independently
@@ -100,9 +100,9 @@ description: "Task list template for feature implementation"
 
 ### Implementation for User Story 3
 
-- [ ] T026 [P] [US3] Add status change action (menu with exactly 3 options) to `LivroItem` in `src/components/LivroItem.tsx` (depends on T007, T021)
-- [ ] T027 [US3] Wire `alterarStatus(id, status)` dispatch from item action in `src/screens/EstanteScreen.tsx` (depends on T011, T026)
-- [ ] T028 [US3] Display provider `erro` as visible banner with `limparErro` dismissal (no silent crash) in `src/screens/EstanteScreen.tsx` (depends on T011)
+- [X] T026 [P] [US3] Add status change action (menu with exactly 3 options) to `LivroItem` in `src/components/LivroItem.tsx` (depends on T007, T021)
+- [X] T027 [US3] Wire `alterarStatus(id, status)` dispatch from item action in `src/screens/EstanteScreen.tsx` (depends on T011, T026)
+- [X] T028 [US3] Display provider `erro` as visible banner with `limparErro` dismissal (no silent crash) in `src/screens/EstanteScreen.tsx` (depends on T011)
 - [ ] T029 [US3] Manual acceptance US.03: run script in `specs/001-lista-leituras/quickstart.md` section "US.03 — Alterar o status" (depends on T027, T028)
 
 **Checkpoint**: At this point, User Stories 1, 2 AND 3 should all be independently functional
@@ -117,8 +117,8 @@ description: "Task list template for feature implementation"
 
 ### Implementation for User Story 4
 
-- [ ] T030 [US4] Add clear back option (header back + botão "Voltar") in `src/screens/CadastroScreen.tsx` (depends on T016)
-- [ ] T031 [US4] Verify post-save return renders the new item without manual reload in `src/screens/EstanteScreen.tsx` (depends on T018, T024)
+- [X] T030 [US4] Add clear back option (header back + botão "Voltar") in `src/screens/CadastroScreen.tsx` (depends on T016)
+- [X] T031 [US4] Verify post-save return renders the new item without manual reload in `src/screens/EstanteScreen.tsx` (depends on T018, T024)
 - [ ] T032 [US4] Manual acceptance US.04: run script in `specs/001-lista-leituras/quickstart.md` section "US.04 — Navegação" (depends on T030, T031)
 
 **Checkpoint**: All user stories should now be independently functional
@@ -129,10 +129,10 @@ description: "Task list template for feature implementation"
 
 **Purpose**: Gates finais e limpeza
 
-- [ ] T033 [P] Full static gate: `npx tsc --noEmit` clean in repository root (constituição III)
-- [ ] T034 [P] Lint/format pass: `npx eslint src App.tsx --fix` in repository root
+- [X] T033 [P] Full static gate: `npx tsc --noEmit` clean in repository root (constituição III)
+- [X] T034 [P] Lint/format pass: `npx eslint src App.tsx --fix` in repository root
 - [ ] T035 Run full manual validation: all sections of `specs/001-lista-leituras/quickstart.md` + SC-001..SC-005 in `specs/001-lista-leituras/spec.md`
-- [ ] T036 Code cleanup: remove dead code/placeholders from `src/screens/EstanteScreen.tsx` and `src/screens/CadastroScreen.tsx`
+- [X] T036 Code cleanup: remove dead code/placeholders from `src/screens/EstanteScreen.tsx` and `src/screens/CadastroScreen.tsx`
 
 ---
 
