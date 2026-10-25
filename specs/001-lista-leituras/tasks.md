@@ -136,6 +136,25 @@ description: "Task list template for feature implementation"
 
 ---
 
+## Phase 8: Unit Tests (solicitados pelo usuário pós-implementação)
+
+**Purpose**: Testes unitários dos módulos puros (regressão); substituem parcialmente a validação manual
+
+- [X] T037 [P] Configure Jest with `jest-expo` preset and AsyncStorage mock in `package.json` and `jest.setup.js`
+- [X] T038 [P] Create validation tests (5 casos) in `src/validation/livroForm.test.ts`
+- [X] T039 [P] Create reducer tests (10 casos: adicionar/alterarStatus/filtro/erros) in `src/state/livroReducer.test.ts`
+- [X] T040 [P] Create filter tests (4 casos) in `src/state/filtros.test.ts`
+- [X] T041 [P] Create repository tests (7 casos: round-trip, corrompido, versão) in `src/storage/livroRepository.test.ts`
+- [X] T042 [P] Install `@testing-library/react-native` and adapt tests to its async `render`/`fireEvent` API
+- [X] T043 [P] Create component tests (5 casos: menu de status, a11y) in `src/components/LivroItem.test.tsx`
+- [X] T044 [P] Create component tests (3 casos: chips de filtro, seleção) in `src/components/FiltroStatus.test.tsx`
+- [X] T045 [US1] Create screen tests (4 casos: validação, persistência, voltar) in `src/screens/CadastroScreen.test.tsx`
+- [X] T046 [US2] [US3] [US4] Create screen tests (6 casos: vazio, carga, filtros, status, navegação) in `src/screens/EstanteScreen.test.tsx`
+
+**Checkpoint**: `npm test` → 44/44 passando; `tsc` e `lint` permanecem limpos
+
+---
+
 ## Dependencies & Execution Order
 
 ### Phase Dependencies

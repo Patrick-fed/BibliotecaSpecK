@@ -66,6 +66,7 @@ iOS/Android).
 ### Gate final
 
 ```powershell
+npm test           # 44 testes unitários e de renderização
 npx tsc --noEmit   # deve sair sem erros (constituição III)
 ```
 

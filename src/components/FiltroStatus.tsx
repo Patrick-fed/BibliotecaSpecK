@@ -18,6 +18,7 @@ export function FiltroStatus({ filtroAtual, aoSelecionar }: Props) {
             onPress={() => aoSelecionar(filtro)}
             style={[styles.chip, ativo && styles.chipAtivo]}
             accessibilityRole="button"
+            accessibilityLabel={`Filtro ${filtro}`}
             accessibilityState={{ selected: ativo }}
           >
             <Text style={[styles.texto, ativo && styles.textoAtivo]}>{filtro}</Text>

@@ -20,7 +20,7 @@ navegação via React Navigation native-stack — zero rede, zero auth.
 **Language/Version**: TypeScript ~6.0.3 (`strict: true`), React Native 0.88 via Expo SDK 58 (managed, pinado em `package.json`)
 **Primary Dependencies**: `expo`, `react`, `react-native`, `@react-navigation/native` + `@react-navigation/native-stack`, `react-native-screens`, `react-native-safe-area-context`, `@react-native-async-storage/async-storage`
 **Storage**: AsyncStorage (somente local; nenhum banco remoto — constituição II)
-**Testing**: testes manuais dos critérios de aceite (spec US.01–US.04) + gate estático `tsc --noEmit`; sem framework automatizado exigido pela spec
+**Testing**: testes manuais dos critérios de aceite (spec US.01–US.04) + testes unitários e de renderização (Jest/`jest-expo` + `@testing-library/react-native`, 44 casos: form, reducer, filtro, repositório, componentes, telas) + gate estático `tsc --noEmit`
 **Target Platform**: iOS 15+ e Android 8+ via Expo Go / emulador
 **Project Type**: mobile-app (2 telas, 4 user stories)
 **Performance Goals**: sem meta instrumentada; verificável manualmente no quickstart — rolagem da lista com ~1.000 livros e troca de filtro sem travamento perceptível durante a validação (T035)

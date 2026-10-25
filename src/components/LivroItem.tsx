@@ -43,6 +43,7 @@ export const LivroItem = memo(function LivroItem({ livro, aoAlterarStatus }: Pro
               onPress={() => selecionar(status)}
               style={[styles.opcao, status === livro.status && styles.opcaoAtiva]}
               accessibilityRole="button"
+              accessibilityLabel={`Definir status ${status}`}
             >
               <Text style={styles.opcaoTexto}>{status}</Text>
             </Pressable>

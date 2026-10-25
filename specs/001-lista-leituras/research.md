@@ -123,6 +123,16 @@ implementação se existirem.
 - *Jest + React Native Testing Library* — valor futuro, mas fora do pedido e
   fora do escopo da spec v1 (restrição RNF05: projeto introdutório).
 
+**Amendment (2026-10-25, pós-implementação)**: o usuário solicitou testes
+unitários e, em seguida, "adicione e faça os testes". Adicionado Jest +
+`jest-expo` + `@testing-library/react-native` (v14, API assíncrona) cobrindo
+módulos puros (`livroForm`, `livroReducer`, `filtros`, `livroRepository`),
+componentes (`LivroItem`, `FiltroStatus`) e telas (`CadastroScreen`,
+`EstanteScreen`) — 44 casos, T037–T046. Como escritos após o código, atuam
+como regressão; a validação manual de UI (T020/T025/T029/T032/T035) permanece
+necessária para os critérios em dispositivo real. Acessibilidade reforçada
+com `accessibilityLabel` em chips de filtro e opções de status.
+
 ## R9 — Ícone/nome do app e configuração Expo
 
 **Decision**: `app.json` com `name: "Minha Estante"`, `slug: minha-estante`,
