@@ -31,7 +31,21 @@
 
 *GATE: Must pass before Phase 0 research. Re-check after Phase 1 design.*
 
-[Gates determined based on constitution file]
+Gates from `.specify/memory/constitution.md` (v1.0.0):
+
+- [ ] **Spec-First**: `spec.md` exists with prioritized user stories, FRs, SCs;
+      no pending `[NEEDS CLARIFICATION]`
+- [ ] **Disciplina de Escopo**: no login, no external API, no remote DB, no
+      push/notifications; exactly three book statuses (`Quero ler`, `Lendo`,
+      `Lido`); local-only persistence — any exception requires a ratified
+      amendment (NON-NEGOTIABLE: not justifiable via Complexity Tracking)
+- [ ] **TypeScript Estrito**: `strict: true`, no `any`/`@ts-ignore` without
+      recorded justification; `Livro` entity typed with a closed status union
+- [ ] **Independência de User Stories**: tasks grouped by story with per-story
+      checkpoints; P1 works standalone; parallel `[P]` tasks touch disjoint files
+- [ ] **UX e Validação Simples**: required-field validation with visible
+      feedback; list shows title/author/status with status filter; errors are
+      surfaced to the user (silent crash = blocking defect)
 
 ## Project Structure
 

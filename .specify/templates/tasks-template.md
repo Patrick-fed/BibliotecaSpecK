@@ -62,12 +62,19 @@ description: "Task list template for feature implementation"
 
 Examples of foundational tasks (adjust based on your project):
 
-- [ ] T004 Setup database schema and migrations framework
-- [ ] T005 [P] Implement authentication/authorization framework
-- [ ] T006 [P] Setup API routing and middleware structure
+- [ ] T004 Set up local-only persistence (constitution II: device storage only —
+      no network, no remote database)
+- [ ] T005 [P] Configure offline-first app shell (constitution II: no
+      login/authorization flow in this project)
+- [ ] T006 [P] Set up navigation and screen structure (no API layer —
+      constitution II forbids external APIs)
 - [ ] T007 Create base models/entities that all stories depend on
-- [ ] T008 Configure error handling and logging infrastructure
-- [ ] T009 Setup environment configuration management
+      (constitution III: `Livro { id, titulo, autor, status }` with closed
+      status union in src/models/)
+- [ ] T008 Configure error handling and user-visible error feedback
+      (constitution V: no silent crashes)
+- [ ] T009 Configure TypeScript strict mode and lint gates
+      (constitution III: `strict: true`, no `any`/`@ts-ignore`)
 
 **Checkpoint**: Foundation ready - user story implementation can now begin in parallel
 
@@ -243,6 +250,10 @@ With multiple developers:
 ## Notes
 
 - [P] tasks = different files, no dependencies
+- Constitution-driven task types (see `.specify/memory/constitution.md`):
+  required-field validation + visible feedback (V), status-transition
+  handling (III/V), status filter on the list (V), local persistence (II),
+  strict TypeScript gate (III)
 - [Story] label maps task to specific user story for traceability
 - Each user story should be independently completable and testable
 - Verify tests fail before implementing

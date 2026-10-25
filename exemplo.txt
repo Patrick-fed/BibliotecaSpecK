@@ -1,0 +1,57 @@
+Vamos estruturar sua atividade como um pequeno aplicativo de lista de leituras, usando React Native, Expo e TypeScript, com foco na parte mais importante: a especificação feita com Spec Kit.
+
+A ideia é criar um app em que o usuário possa cadastrar livros, acompanhar o que está lendo e marcar as leituras como concluídas.
+1. Tema do aplicativo
+Nome: Minha Estante
+
+Objetivo: permitir que o usuário organize seus livros em três categorias:
+- Quero ler: livros que pretende ler futuramente.
+- Lendo: livros cuja leitura já começou.
+- Lido: livros que terminou de ler.
+Funcionalidades previstas
+
+
+
+
+
+
+
+
+
+1. Minha lista de leituras
+
+Exibir os livros em uma FlatList, mostrando título, autor e status. Permitir filtrar por status.
+
+
+
+
+
+
+
+
+
+
+
+
+2. Cadastro de livros
+
+Formulário para informar título e autor, com validação dos campos obrigatórios.
+
+
+
+
+
+
+
+
+
+
+
+
+3. Gerenciamento de status
+
+Permitir mudar um livro entre “Quero ler”, “Lendo” e “Lido”.
+
+
+
+Para manter a atividade dentro do escopo, podemos começar sem login, sem integração com API externa e sem banco de dados remoto.

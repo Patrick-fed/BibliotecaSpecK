@@ -1,0 +1,180 @@
+2. User stories e critérios de aceite
+Estas são quatro user stories que você pode usar como base para a especificação do Spec Kit.
+US.01
+Cadastrar um livro
+User story
+
+Como leitor, quero cadastrar um livro informando seu título e autor, para organizar as obras que desejo acompanhar.
+
+Critérios de aceite
+- O formulário deve conter os campos título e autor.
+- Os dois campos são obrigatórios.
+- O sistema deve remover espaços desnecessários no início e no fim dos textos.
+- Se algum campo estiver vazio, o cadastro não deve ser realizado e uma mensagem de validação deve ser exibida.
+- Após o cadastro válido, o livro deve aparecer na lista com o status inicial “Quero ler”.
+
+US.02
+Visualizar a lista de leituras
+User story
+
+Como leitor, quero visualizar meus livros cadastrados em uma lista, para consultar facilmente minhas leituras.
+
+Critérios de aceite
+- Os livros devem ser exibidos usando FlatList.
+- Cada item deve mostrar título, autor e status.
+- A lista deve apresentar uma mensagem informativa quando estiver vazia.
+- O usuário deve conseguir filtrar os livros por “Todos”, “Quero ler”, “Lendo” e “Lido”.
+- A lista deve ser atualizada após o cadastro ou a alteração de um livro.
+
+US.03
+Alterar o status de leitura
+User story
+
+Como leitor, quero alterar o status de um livro, para acompanhar meu progresso de leitura.
+
+Critérios de aceite
+- Cada livro deve possuir um dos três status permitidos.
+- O usuário deve conseguir mudar o status de um livro já cadastrado.
+- O novo status deve aparecer imediatamente na lista.
+- Um livro marcado como “Lido” deve continuar cadastrado.
+- Não deve ser possível atribuir um status fora das três opções definidas.
+
+US.04
+Navegar pelo aplicativo
+User story
+
+Como leitor, quero navegar entre a tela da minha estante e a tela de cadastro, para consultar e adicionar livros com facilidade.
+
+Critérios de aceite
+- O aplicativo deve possuir pelo menos duas telas com navegação funcional.
+- A tela principal deve permitir consultar a lista de livros.
+- A tela de cadastro deve permitir preencher e validar o formulário.
+- Deve existir uma forma clara de retornar à tela principal.
+- Após cadastrar um livro, o usuário deve conseguir retornar à lista e visualizar o novo item.
+
+3. Telas e navegação
+Minha sugestão é usar duas telas obrigatórias e manter o fluxo simples.
+
+
+
+
+
+
+
+
+
+Tela 1 — Minha Estante
+- Lista de livros com FlatList.
+- Filtros de status.
+- Botão para adicionar um livro.
+- Ação para alterar o status de cada livro.
+- Mensagem quando não houver livros cadastrados.
+
+
+
+
+
+
+
+
+
+
+
+
+Tela 2 — Cadastrar Livro
+- Campo para título.
+- Campo para autor.
+- Botão para salvar.
+- Validação e mensagens de erro.
+- Opção para voltar à estante.
+
+
+
+4. Como organizar o projeto com Spec Kit
+A especificação deve vir antes da implementação. Não basta criar os arquivos depois de terminar o código.
+
+Uma estrutura possível para o repositório é:
+minha-estante/
+├── .specify/
+├── specs/
+│   └── 001-lista-leituras/
+│       ├── spec.md
+│       ├── plan.md
+│       └── tasks.md
+├── app/
+│   ├── index.tsx
+│   └── cadastro.tsx
+├── src/
+│   ├── components/
+│   ├── types/
+│   └── navigation/
+├── assets/
+├── screenshots/
+├── App.tsx
+├── package.json
+└── README.md
+
+
+A estrutura exata pode variar conforme a versão do Spec Kit e o modelo de navegação escolhido pelo Expo. Preserve os arquivos gerados pela ferramenta no local esperado por ela.
+Etapa 1 — Especificação
+Use este texto como ponto de partida para o comando de especificação do Spec Kit (/speckit.specify):
+Minha Estante — Lista de Leituras
+Objetivo
+Desenvolver um aplicativo mobile para organizar livros por status de leitura, permitindo cadastrar livros, consultar a lista e acompanhar o progresso.
+Público-alvo
+Leitores que desejam manter uma lista pessoal de livros.
+Requisitos funcionais
+- RF01: cadastrar um livro com título e autor.
+- RF02: validar os campos obrigatórios antes de salvar.
+- RF03: listar os livros utilizando FlatList.
+- RF04: permitir filtrar os livros por status.
+- RF05: permitir alterar o status de leitura.
+- RF06: apresentar uma mensagem quando a lista estiver vazia.
+- RF07: permitir navegar entre a tela principal e a tela de cadastro.
+Status permitidos
+- Quero ler
+- Lendo
+- Lido
+Requisitos não funcionais
+- RNF01: desenvolver com React Native, Expo e TypeScript.
+- RNF02: utilizar componentes nativos e uma interface simples.
+- RNF03: manter os tipos de dados explícitos em TypeScript.
+- RNF04: apresentar mensagens claras de validação.
+- RNF05: manter o escopo adequado a um projeto acadêmico introdutório.
+Restrições
+- Não implementar autenticação.
+- Não utilizar uma API externa ou banco de dados remoto.
+- Não incluir funcionalidades que não sejam necessárias para as user stories.
+Critérios de conclusão
+- As quatro user stories devem ser atendidas.
+- A navegação entre as duas telas deve funcionar.
+- O formulário deve impedir o cadastro com campos obrigatórios vazios.
+- A lista deve ser atualizada após as operações realizadas.
+- O aplicativo deve executar em ambiente Expo.
+
+
+
+
+Etapa 2 — Plano de implementação
+Depois de revisar a especificação gerada, use /speckit.plan para planejar a implementação.
+
+Confira se o plano contempla:
+- Expo com TypeScript.
+- Navegação entre as duas telas.
+- Tipagem do modelo Livro.
+- Gerenciamento de estado da lista.
+- Formulário e validação.
+- FlatList e filtros de status.
+- Testes manuais dos critérios de aceite.
+Um modelo de dados adequado seria:
+export type StatusLeitura =
+  | 'Quero ler'
+  | 'Lendo'
+  | 'Lido';
+
+export interface Livro {
+  id: string;
+  titulo: string;
+  autor: string;
+  status: StatusLeitura;
+}
