@@ -69,6 +69,13 @@ iOS/Android).
 npx tsc --noEmit   # deve sair sem erros (constituição III)
 ```
 
+### Desempenho percebido (T035)
+
+1. Cadastre ~20 livros e role a lista.
+2. Alterne os filtros rapidamente 5 vezes.
+   - **Esperado**: sem travamento perceptível; troca de filtro imediata.
+   - (Meta de 60 fps não é instrumentada — verificação qualitativa.)
+
 ## Estrutura gerada
 
 `App.tsx` + `src/` (navigation, screens, components, state, storage, types,

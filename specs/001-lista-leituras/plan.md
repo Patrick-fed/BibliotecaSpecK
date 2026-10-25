@@ -17,15 +17,15 @@ navegação via React Navigation native-stack — zero rede, zero auth.
 
 ## Technical Context
 
-**Language/Version**: TypeScript 5.x (`strict: true`), React Native via Expo (managed, latest stable SDK)
+**Language/Version**: TypeScript ~6.0.3 (`strict: true`), React Native 0.88 via Expo SDK 58 (managed, pinado em `package.json`)
 **Primary Dependencies**: `expo`, `react`, `react-native`, `@react-navigation/native` + `@react-navigation/native-stack`, `react-native-screens`, `react-native-safe-area-context`, `@react-native-async-storage/async-storage`
 **Storage**: AsyncStorage (somente local; nenhum banco remoto — constituição II)
 **Testing**: testes manuais dos critérios de aceite (spec US.01–US.04) + gate estático `tsc --noEmit`; sem framework automatizado exigido pela spec
 **Target Platform**: iOS 15+ e Android 8+ via Expo Go / emulador
 **Project Type**: mobile-app (2 telas, 4 user stories)
-**Performance Goals**: rolagem a 60 fps em `FlatList` com até ~1.000 livros; troca de filtro sem travamento perceptível
+**Performance Goals**: sem meta instrumentada; verificável manualmente no quickstart — rolagem da lista com ~1.000 livros e troca de filtro sem travamento perceptível durante a validação (T035)
 **Constraints**: sem login, sem API externa, sem banco remoto (constituição II); `any`/`@ts-ignore` proibidos (III); crash silencioso é defeito bloqueante (V)
-**Scale/Scope**: 1 app único, 2 telas, 7 RFs, 1 entidade persistida (`Livro`)
+**Scale/Scope**: 1 app único, 2 telas, 11 FRs + 5 RNFs, 1 entidade persistida (`Livro`)
 
 ## Constitution Check
 

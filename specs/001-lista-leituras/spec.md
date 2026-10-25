@@ -2,8 +2,12 @@
 
 **Feature Branch**: `001-lista-leituras`
 **Created**: 2026-10-25
-**Status**: Draft
+**Status**: Implemented (validação manual pendente)
 **Input**: User description: "use userStories.txt para base do plano" (base: `userStories.txt` + `exemplo.txt`)
+
+**Terminologia**: "Minha Estante" é o nome do app e da tela principal;
+"lista de leituras" é o `FlatList` exibido dentro dela. Os dois termos são
+equivalentes neste documento e nos artefatos derivados.
 
 ## User Scenarios & Testing *(mandatory)*
 
@@ -70,9 +74,11 @@ progresso de leitura.
 **Why this priority**: só faz sentido sobre livros já cadastrados e visíveis
 (US.01 e US.02); é o ciclo de uso contínuo do app.
 
-**Independent Test**: pode ser testada mudando o status de um livro
-cadastrado e verificando a atualização imediata na lista e a permanência do
-registro.
+**Independent Test**: no nível de dados, o reducer aceita
+`alterarStatus(id, status)` isoladamente (sem UI). No nível de UI, o teste
+completo requer a lista da US.02 (item visível) — dependência registrada em
+`tasks.md`; mudar o status de um livro cadastrado e verificar a atualização
+imediata e a permanência do registro.
 
 **Acceptance Scenarios**:
 
@@ -141,17 +147,30 @@ o novo item.
 - **FR-005**: Sistema MUST permitir alterar o status de leitura de um livro
   cadastrado, restrito aos três status permitidos.
 - **FR-006**: Sistema MUST apresentar mensagem informativa quando a lista
-  estiver vazia.
+  estiver vazia, com o texto exato "Nenhum livro cadastrado ainda." (sem
+  livros) ou "Nenhum livro neste status." (filtro sem resultados).
 - **FR-007**: Sistema MUST permitir navegar entre a tela principal e a tela
   de cadastro, incluindo retorno à tela principal.
 - **FR-008**: Sistema MUST remover espaços desnecessários no início e no fim
-  dos textos antes de validar e gravar.
+  dos textos antes de validar e gravar. (Complementa FR-002: FR-008 define a
+  preparação do texto; FR-002 define o bloqueio e a mensagem.)
 - **FR-009**: Sistema MUST atribuir o status inicial "Quero ler" a todo livro
   recém-cadastrado.
 - **FR-010**: Sistema MUST atualizar a lista após cadastro ou alteração de
   status.
 - **FR-011**: Sistema MUST persistir os dados localmente no dispositivo,
   mantendo-os disponíveis entre sessões.
+
+### Non-Functional Requirements
+
+- **RNF-001**: Sistema MUST ser desenvolvido com React Native, Expo e
+  TypeScript.
+- **RNF-002**: Sistema MUST usar componentes nativos e interface simples.
+- **RNF-003**: Sistema MUST manter tipos de dados explícitos em TypeScript
+  (`strict`, união fechada de status — constituição III).
+- **RNF-004**: Sistema MUST apresentar mensagens claras de validação.
+- **RNF-005**: Sistema MUST manter o escopo adequado a projeto acadêmico
+  introdutório (sem login, sem API, sem banco remoto).
 
 ### Key Entities
 
